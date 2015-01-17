@@ -1,0 +1,222 @@
+<div class="fullwidthbanner-container">
+    <div class="fullwidthbanner">
+        <ul>
+            <% @sliders.each do |item| %>
+              <li data-transition="random" data-slotamount="7">
+                  <img src="<%= item.image_url %>" width="1500" height="530" data-fullwidthcentering="on" alt="" />
+                  <div class="custom-cap"><%= item.title %></div>
+              </li>
+            <% end %>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <div class="slider-title">
+                    <div class="icon icons-double-line"></div>
+                    <div class="semi-white-bg" id="custom-caption-container">
+
+                    </div>
+                    <div class="icon icons-double-line"></div>
+                    <nav class="nav-icons">
+                        <a href="#" class="icon icons-slider-nav-left" id="slider-nav-left"></a>
+                        <a href="#" class="icon icons-slider-nav-right" id="slider-nav-right"></a>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="span3">
+                <div class="opening-time">
+                    <div class="time-table">
+                        <h3><span class="icon icons-ornament-left"></span> <span class="light">OPENING</span> TIME <span class="icon icons-ornament-right"></span></h3>
+                        <div class="inner-bg  js--timetable">
+                            <% @opentimes[0..5].each_with_index do |item, index| %>
+                              <dl class="week-day" data-day="<%= index + 1 %>">
+                                  <dt><%= item.title %></dt>
+                                  <dd><%= "#{item.open.strftime('%I:%M')} - #{item.close.strftime('%I:%M')}" %></dd>
+                              </dl>
+                            <% end %>
+                            <dl class="week-day closed" data-day="0">
+                                <dt>Sunday</dt>
+                                <dd>CLOSED</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%= render "shared/socialicon" %>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <article class="span3"><!-- our services -->
+                <div class="lined">
+                    <h2><a href="contact.html"><span class="light">ABOUT</span> US</a></h2>
+                    <h5>Our interesting story</h5>
+                    <span class="bolded-line"></span>
+                </div>
+                <p><%= @aboutus.description %></p>
+            </article><!-- /our services -->
+            <% @services.each do |item|  %>
+              <article class="span3"><!-- service -->
+                  <div class="picture">
+                      <%= link_to(item) do%>
+                        <img src="<%= item.thumb_url(:thumb) %>" alt="<%= item.title %>" width="215" height="137" />
+                        <span class="img-overlay">
+                            <span class="btn btn-inverse">Read more</span>
+                        </span>
+                      <%  end %>
+                  </div>
+                  <div>
+                      <h3 class="size-16"><%= item.title %></h3>
+                      <span class="bolded-line"></span>
+                  </div>
+                  <p><%= item.description %></p>
+                  <%= link_to "READ MORE", item, class: "read-more" %>
+                </article><!-- /service -->
+              <% end %>
+              <div class="row">
+                  <div class="span12">
+                      <div class="divide-line">
+                          <div class="icon icons-scissors"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> <!-- /container -->
+
+      <div class="dark-stripe">
+          <div class="container">
+              <div class="row">
+
+                  <div class="span12">
+                      <div class="lined">
+                          <h2>
+                              <a href="#" class="nav-left icon icons-arrow-left-white"></a>
+                              <%= link_to(employees_path) do %><span class="light">MEET THE</span> TEAM<% end %>
+                              <a href="#" class="nav-right icon icons-arrow-right-white"></a>
+                          </h2>
+                          <h5>Who works for us</h5>
+                          <span class="bolded-line"></span>
+                      </div>
+                      <div class="carousel carousel-wide">
+                          <div class="slide">
+                              <ul class="thumbnails">
+                                  <% @employees.each do |item| %>
+                                    <li class="span2"><!-- team member -->
+                                        <div class="picture hidden-phone">
+                                            <%= link_to(employees_path + "#team-member-#{item.id}")  do %>
+                                              <img src="<%= item.thumb_url(:thumb) %>" alt="<%= item.name %>" width="170" height="233" class="grayscale-img" /><!-- just add .grayscale-img to the image for grayscale version -->
+                                              <span class="shine-overlay"></span>
+                                            <% end %>
+                                        </div>
+                                        <div class="caption">
+                                            <h4 class="theme-clr"><%= item.name %></h4>
+                                            <p class="title no-margin"><%= item.title %></p>
+                                        </div>
+                                    </li><!-- /team member -->
+                                  <% end %>
+                              </ul>
+                          </div><!-- /slide -->
+                      </div>
+                  </div>
+              </div><!-- /row -->
+          </div><!-- /container -->
+      </div><!-- /dark-stripe -->
+
+      <div class="container">
+
+          <div class="row">
+              <div class="span6"><!-- latest news -->
+                  <div class="lined">
+                      <%= link_to "VIEW ALL", articles_path, class: "btn btn-theme pull-right no-bevel" %>
+                        <h2><%= link_to(articles_path) do%><span class="light">LATEST</span> NEWS<% end %></h2>
+                        <h5>What is going on</h5>
+                        <span class="bolded-line"></span>
+                    </div>
+                    <div class="row">
+                        <% @articles.each do |item| %>
+                          <article class="span3">
+                              <h3 class="no-margin"><%= item.title %></h3>
+                              <div class="meta-info">
+                                  <span class="date"><%= item.publishdate.strftime('%d. %^B %Y') %></span>
+                              </div>
+                              <p><%= item.description %></p>
+                              <%= link_to "READ MORE", item, class: "read-more" %>
+                            </article>
+                          <% end %>
+                      </div>
+                  </div><!-- /latest news -->
+
+                  <div class="span3 hidden-phone"><!-- gallery -->
+                      <div class="lined">
+                          <nav class="arrows pull-right">
+                              <a href="#" class="nav-left icon icons-arrow-left"></a>
+                              <a href="#" class="nav-right icon icons-arrow-right"></a>
+                          </nav>
+                          <h2><a href="gallery.html">GALLERY</a></h2>
+                          <h5>Cutting edge hairstyle</h5>
+                          <span class="bolded-line"></span>
+                      </div>
+                      <div class="carousel">
+                          <% @pictures.in_groups_of(9) do |group| %>
+                            <div class="slide">
+                                <ul class="thumbnails">
+                                    <% group.each do |item| %>
+                                      <% if !item.nil? %>
+                                        <li class="span1 picture">
+                                            <%= link_to(item.file_url, class: "fancybox", rel: "fancybox") do %>
+                                              <img src="<%= item.file_url(:thumb70) %>" alt="" width="70" height="70" />
+                                              <span class="img-overlay">
+                                                  <span class="icon icons-zoom"></span>
+                                              </span>
+                                            <% end %>
+                                        </li>
+                                      <% end %>
+                                    <% end %>
+                                </ul>
+                            </div><!-- /slide -->
+                          <% end %>
+                      </div><!-- /carousel -->
+                  </div><!-- /gallery -->
+
+                  <div class="span3"><!-- testimonials -->
+                      <div class="lined">
+                          <nav class="arrows pull-right">
+                              <a href="#" class="nav-left icon icons-arrow-left"></a>
+                              <a href="#" class="nav-right icon icons-arrow-right"></a>
+                          </nav>
+                          <h2>TESTIMONIALS</h2>
+                          <h5>What others said about us</h5>
+                          <span class="bolded-line"></span>
+                      </div>
+                      <div class="carousel">
+                          <% @testimonials.each do |item| %>
+                            <div class="slide">
+                                <div class="quote">
+                                    <blockquote>
+                                        <p><%=  item.content %></p>
+                                    </blockquote>
+                                    <div class="author">
+                                        <div class="person theme-clr"><%= item.name %></div>
+                                        <div class="title"><%= item.title %></div>
+                                    </div>
+                                </div>
+                            </div>
+                          <% end %>
+                      </div>
+                  </div><!-- /testimonials -->
+
+              </div><!-- /row -->
+
+              <div class="row">
+                  <div class="span12">
+                      <div class="divide-line">
+                          <div class="icon icons-scissors"></div>
+                      </div>
+                  </div>
+              </div>
+
+          </div> <!-- /container -->
