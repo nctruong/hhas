@@ -8,119 +8,64 @@
         </div>
     </div>
 </div>
-
 <div class="breadcrumbs-container">
     <div class="container">
         <div class="row">
             <div class="span12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home Page</a> <span class="divider"></span></li>
-                    <li class="active"><a href="services-pricing.html">Services &amp; Pricing</a></li>
+                    <li><%= link_to "Home Page", root_path %> <span class="divider"></span></li>
+                    <li class="active"><a href="#">Services &amp; Pricing</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div><!-- /breadcrumbs -->
-
 <div class="main-content">
     <div class="container">
         <div class="row">
             <div class="span3">
-                <div class="left sidebar">
-                    <div class="sidebar-item menu">
-                        <h3 class="lined">
-                            Services &amp; Pricing
-                            <span class="bolded-line"></span>
-                        </h3>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="services-pricing.html">Our Services</a></li>
-                            <li><a href="features.html">Features of the Theme</a></li>
-                            <li><a href="pricing.html">Pricing Table</a></li>
-                            <li><a href="#">Something else here</a></li>
-                        </ul>
-                    </div>
-                </div><!-- /sidebar -->
+                <%= render partial: "menu", locals: { services: @services } %>
             </div>
             <div class="span9">
-
-                <div class="lined">
-                    <h2><span class="light">CUTTING</span> &amp; STYLING</h2>
-                    <h5>How much our services cost</h5>
-                    <span class="bolded-line"></span>
-                </div>
-
-                <article class="row">
-                    <div class="span3">
-                        <p>Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam placerat dapibus. Etiam ultrices nulla ed</p>
-                    </div>
-                    <div class="span3">
-                        <p>vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit.</p>
-                    </div>
-                    <div class="span3">
-                        <div class="picture">
-                            <img src="http://placehold.it/270x172" alt="" width="270" height="172" />
+                <% @services.each_with_index do |item, index| %>
+                  <div class="lined">
+                      <h2><%= item.title %></h2>
+                      <h5><%= item.created_at.strftime('%I. %B %Y') %></h5>
+                      <span class="bolded-line"></span>
+                  </div>
+                  <% if index.even? %>
+                    <article class="row">
+                        <div class="span6">
+                            <p><%= item.description %></p>
                         </div>
-                    </div>
-                </article><!-- /one service -->
-
-                <div class="row">
-                    <div class="span9">
-                        <div class="divide-line">
-                            <span class="icon icons-scissors"></span>
+                        <div class="span3">
+                            <div class="picture">
+                                <img src="<%= item.thumb_url %>" alt="" width="270" height="172" />
+                            </div>
                         </div>
-                    </div>
-                </div><!-- /divider -->
-
-
-                <div class="lined">
-                    <h2><span class="light">SPA</span> &amp; RELAXING</h2>
-                    <h5>Awesome subtitle about spa</h5>
-                    <span class="bolded-line"></span>
-                </div>
-
-                <article class="row">
-                    <div class="span3">
-                        <div class="picture">
-                            <img src="http://placehold.it/270x172" alt="" width="270" height="172" />
+                    </article><!-- /one service -->
+                  <% else %>                
+                    <article class="row">
+                        <div class="span3">
+                            <div class="picture">
+                                <img src="<%= item.thumb_url %>" alt="" width="270" height="172" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="span3">
-                        <p>Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam placerat dapibus. Etiam ultrices nulla ed</p>
-                    </div>
-                    <div class="span3">
-                        <p>vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit.</p>
-                    </div>
-                </article><!-- /one service -->
-
-                <div class="row">
-                    <div class="span9">
-                        <div class="divide-line">
-                            <span class="icon icons-scissors"></span>
+                        <div class="span6">
+                            <p><%= item.description %></p>
                         </div>
-                    </div>
-                </div><!-- /divider -->
-
-
-                <div class="lined">
-                    <h2><span class="light">NAIL</span> TREATMENTS</h2>
-                    <h5>Nails are important too</h5>
-                    <span class="bolded-line"></span>
-                </div>
-
-                <article class="row">
-                    <div class="span3">
-                        <p>Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam placerat dapibus. Etiam ultrices nulla ed</p>
-                    </div>
-                    <div class="span3">
-                        <p>vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit.</p>
-                    </div>
-                    <div class="span3">
-                        <div class="picture">
-                            <img src="http://placehold.it/270x172" alt="" width="270" height="172" />
+                    </article><!-- /one service -->
+                  <% end %>
+                  <% if (index + 1) < @services.count %>
+                    <div class="row">
+                        <div class="span9">
+                            <div class="divide-line">
+                                <span class="icon icons-scissors"></span>
+                            </div>
                         </div>
-                    </div>
-                </article><!-- /one service -->
-
+                    </div><!-- /divider -->
+                  <% end %>
+                <% end %>
             </div>
         </div><!-- /services left -->
     </div><!-- /container -->

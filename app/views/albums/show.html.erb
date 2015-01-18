@@ -1,29 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="title-area">
+    <div class="container">
+        <div class="row">
+            <div class="span10">
+                <h1>Gallery</h1>
+            </div>
+            <%= render "shared/socialicon" %>
+        </div>
+    </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @album.title %>
-</p>
+<div class="breadcrumbs-container">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li><%= link_to "Home Page", root_path %> <span class="divider"></span></li>
+                    <li><%= link_to "Galleries", albums_path %> <span class="divider"></span></li>
+                    <li class="active"><%= @album.title %> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!-- /breadcrumbs -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @album.description %>
-</p>
-
-<p>
-  <strong>Cover:</strong>
-  <%= @album.cover %>
-</p>
-
-<p>
-  <strong>Ishomepage:</strong>
-  <%= @album.isHomePage %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @album.visible %>
-</p>
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                
+                  <div class="lined">
+                      <h2><%= @album.title %></h2>
+                      <h5><%= @album.created_at.strftime('%I. %B %Y') %></h5>
+                      <span class="bolded-line"></span>
+                  </div>
+                  <div class="row with-margin">
+                      <div class="span9"><%= @album.description %></div>
+                  </div>               
+                  <section class="gallery clearfix">
+                      <% @album.pictures.each do |pic| %>
+                        <div class="picture">
+                            <%= link_to(pic.file_url, rel: "lightbox[#{@album.id}]") do %>
+                              <img width="91" height="91" alt="" src="<%= pic.file_url(:thumb115) %>">
+                              <span class="img-overlay">
+                                  <span class="icon icons-zoom"></span>
+                              </span>
+                            <% end %>
+                        </div>
+                      <% end %>
+                  </section>
+                  
+            </div>
+            <div class="span3">
+                <%= render partial: "menu", locals: { albums: @albums } %>
+            </div>
+        </div><!-- /gallery left -->
+    </div><!-- /container -->
+</div>

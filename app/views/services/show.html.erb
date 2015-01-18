@@ -1,44 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="title-area">
+    <div class="container">
+        <div class="row">
+            <div class="span10">
+                <h1>Services &amp; Pricing</h1>
+            </div>
+            <%= render "shared/socialicon" %>
+        </div>
+    </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @service.title %>
-</p>
+<div class="breadcrumbs-container">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li><%= link_to "Home Page", root_path %> <span class="divider"></span></li>
+                    <li><%= link_to "Services & Pricing", services_path %> <span class="divider"></span></li>
+                    <li class="active"><%= @service.title %> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!-- /breadcrumbs -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @service.content %>
-</p>
-
-<p>
-  <strong>Thumb:</strong>
-  <%= @service.thumb %>
-</p>
-
-<p>
-  <strong>Oldprice:</strong>
-  <%= @service.oldprice %>
-</p>
-
-<p>
-  <strong>Newprice:</strong>
-  <%= @service.newprice %>
-</p>
-
-<p>
-  <strong>Ishomepage:</strong>
-  <%= @service.isHomePage %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @service.visible %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <%= render partial: "menu", locals: { services: @services } %>
+            </div>
+            <div class="span9">
+                <div class="lined">
+                    <h2><%= @service.title %></h2>
+                    <h5><%= @service.created_at.strftime('%I. %B %Y') %></h5>
+                    <span class="bolded-line"></span>
+                </div>
+                <article class="row">
+                  <%= raw(@service.content) %>
+                </article><!-- /one service -->
+                <div class="row">
+                    <div class="span9">
+                        <div class="divide-line">
+                            <span class="icon icons-scissors"></span>
+                        </div>
+                    </div>
+                </div><!-- /divider -->
+            </div>
+        </div><!-- /services left -->
+    </div><!-- /container -->
+</div>

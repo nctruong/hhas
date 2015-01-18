@@ -1,5 +1,90 @@
-<h1>New Reservation</h1>
+<div class="title-area">
+    <div class="container">
+        <div class="row">
+            <div class="span10">
+                <h1>Make an appointment</h1>
+            </div>
+            <%= render "shared/socialicon" %>
+        </div>
+    </div>
+</div>
+<div class="breadcrumbs-container">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home Page</a> <span class="divider"></span></li>
+                    <li class="active"><a href="#">Make an Appointment</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!-- /breadcrumbs -->
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <div class="left sidebar">
+                    <div class="opening-time sidebar-item visible-desktop">
+                        <div class="time-table">
+                            <h3><span class="icon icons-ornament-left"></span> <span class="light">OPENING</span> TIME <span class="icon icons-ornament-right"></span></h3>
+                            <div class="inner-bg  js--timetable">
+                                <% @opentimes[0..5].each_with_index do |item, index| %>
+                                  <dl class="week-day" data-day="<%= index + 1 %>">
+                                      <dt><%= item.title %></dt>
+                                      <dd><%= "#{item.open.strftime('%I:%M')} - #{item.close.strftime('%I:%M')}" %></dd>
+                                  </dl>
+                                <% end %>
+                                <dl class="week-day closed" data-day="0">
+                                    <dt>Sunday</dt>
+                                    <dd>CLOSED</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div><!-- /opening time -->
 
-<%= render 'form' %>
+                    <div class="sidebar-item">
+                        <div class="lined">
+                            <h2><span class="light">OUR</span> ADDRESS</h2>
+                            <h5>Where can you find us?</h5>
+                            <span class="bolded-line"></span>
+                        </div>
+                        <strong class="black-clr">Hairpress Saloon</strong> <br />
+                        Example Street 546 <br />
+                        Creative Town, ZIP 12345 <br />
+                        Slovenia, EU <br /><br />
 
-<%= link_to 'Back', reservations_path %>
+                        <a href="#" class="read-more">VIEW MAP -</a> <br /><br />
+
+                        Phone: <strong class="black-clr">+386 01 2345-6789</strong> <br />
+                        Fax: <strong class="black-clr">+386 01 2345-6789</strong> <br />
+                        Mail: <strong class="black-clr">info@proteusthemes.com</strong> <br />
+                        Web: <strong class="black-clr">www.hairpress.com</strong>
+
+                    </div>
+
+                </div><!-- /sidebar -->
+
+            </div>
+
+            <div class="span9">
+
+                <article class="inner-content">
+
+                    <div class="lined">
+                        <h2><span class="light">MAKE</span> AN APPOINTMENT</h2>
+                        <h5>Fields market with <span class="theme-clr">*</span> are required</h5>
+                        <span class="bolded-line"></span>
+                    </div>
+
+                    <p></p>
+
+                    <%= render 'form' %>
+
+                </article>
+
+
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->

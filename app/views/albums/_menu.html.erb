@@ -1,0 +1,14 @@
+<div class="left sidebar">
+    <div class="sidebar-item menu">
+        <h3 class="lined">
+            Galleries
+            <span class="bolded-line"></span>
+        </h3>
+        <ul class="nav nav-pills nav-stacked">
+            <li <% if current_page?(controller: 'albums', action: 'index') %>class="active"<% end %>><%= link_to "All galleries", albums_path %></li>
+            <% albums.each do |item| %>
+              <li <% if current_page?(controller: 'albums', action: 'show', id: item.id) %>class="active"<% end %>><%= link_to item.title, item %></li>
+            <% end %>
+        </ul>
+    </div>
+</div><!-- /sidebar -->

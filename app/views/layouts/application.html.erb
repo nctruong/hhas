@@ -81,12 +81,12 @@
                         <!--  =============================================  -->
                         <div class="nav-collapse collapse">
                             <ul class="nav">
-                                <li class="active"><%= link_to "Home", root_path %></li>
-                                <li><%= link_to "Services & Pricing", services_path %></li>
-                                <li><%= link_to "Meet the team", employees_path %></li>
-                                <li><%= link_to "Gallery", albums_path %></li>
-                                <li><%= link_to "News", articles_path %></li>
-                                <li><%= link_to "Contact", new_contact_path %></li>
+                                <li <%= params[:controller] == 'index' ? 'class=active' : '' %>><%= link_to "Home", root_path %></li>
+                                <li <%= params[:controller] == 'services' ? 'class=active' : '' %>><%= link_to "Services & Pricing", services_path %></li>
+                                <li <%= params[:controller] == 'employees' ? 'class=active' : '' %>><%= link_to "Meet the team", employees_path %></li>
+                                <li <%= params[:controller] == 'albums' ? 'class=active' : '' %>><%= link_to "Gallery", albums_path %></li>
+                                <li <%= params[:controller] == 'articles' ? 'class=active' : '' %>><%= link_to "News", articles_path %></li>
+                                <li <%= params[:controller] == 'contacts' ? 'class=active' : '' %>><%= link_to "Contact", new_contact_path %></li>
                             </ul>
                             <%= link_to "Make an appointment", new_reservation_path, class: "btn btn-theme btn-large pull-right" %>
                         </div><!-- /.nav-collapse-->

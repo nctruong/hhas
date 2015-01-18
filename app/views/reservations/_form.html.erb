@@ -1,45 +1,50 @@
-<%= form_for(@reservation) do |f| %>
-  <% if @reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+<%= form_for(@reservation, class: 'form appointment') do |f| %>
+    <% if notice.present? %>
+      <div class="alert alert-info" role="alert"><%= notice %></div>
+    <% end %>
+    <% if @reservation.errors.any? %>
+      <div id="error_explanation">
+          <div class="alert alert-danger" role="alert">
+              <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
 
-      <ul>
-      <% @reservation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :datetime %><br>
-    <%= f.text_field :datetime %>
-  </div>
-  <div class="field">
-    <%= f.label :isFlexible %><br>
-    <%= f.check_box :isFlexible %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+              <ul>
+                  <% @reservation.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+    <% end %>
+    <div class="row">
+        <div class="span3">
+            <label for="inpt-name">First and Last name<span class="theme-clr">*</span></label>
+            <%= f.text_field :name, class: 'span3', id: 'inpt-name' %>
+          </div>
+          <div class="span3">
+              <label for="inpt-phone">Phone Number<span class="theme-clr">*</span></label>
+              <%= f.text_field :phone, class: 'span3', id: 'inpt-phone' %>
+            </div>
+            <div class="span3">
+                <label for="inpt-email">E-mail Address</label>
+                <%= f.text_field :email, class: 'span3', id: 'inpt-email' %>
+              </div>
+          </div>
+          <div class="row">
+              <div class="span2">
+                  <label for="inpt-date">Date<span class="theme-clr">*</span></label>
+                  <%= f.text_field :datetime, class: 'input-small add-datepicker', id: 'inpt-date' %>
+                    <a href="#" class="add-datepicker-icon"><span class="icon icons-calendar"></span></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span9">
+                    <label for="txtarea">Type here if you have some special requirements<span class="theme-clr">*</span></label>
+                    <%= f.text_area :message, class: 'span9', id: 'txtarea', size: '24x7' %>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="span9">
+                      <%= f.submit "MAKE AN APPOINMENT", class: 'btn btn-theme no-bevel pull-right' %>
+                    </div>
+                </div>
+              <% end %>

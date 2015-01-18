@@ -1,36 +1,51 @@
 <div class="span9">
-  <article class="inner-content">
-    <div class="lined">
-      <h2><span class="light">SEND</span> US AN EMAIL</h2>
-      <h5>Fields market with <span class="theme-clr">*</span> are required</h5>
-      <span class="bolded-line"></span>
-    </div>
-    <%= form_for(@contact, class: "form-contact") do |f| %>
-      <div class="row">
-        <div class="span3">
-          <label for="inpt-name">First and Last name<span class="theme-clr">*</span></label>
-          <%= f.text_field :name, class: "span3" , id: "inpt-name" %>
+    <article class="inner-content">
+        <div class="lined">
+            <h2><span class="light">SEND</span> US AN EMAIL</h2>
+            <h5>Fields market with <span class="theme-clr">*</span> are required</h5>
+            <span class="bolded-line"></span>
         </div>
-        <div class="span3">
-            <label for="inpt-phone">Phone Number<span class="theme-clr">*</span></label>
-            <%= f.text_field :phone, class: "span3", id: "inpt-phone" %>
-        </div>
-        <div class="span3">
-            <label for="inpt-email">E-mail Address</label>
-            <%= f.text_field :email, class: "span3", id: "inpt-email" %>
-        </div>
-      </div>
-      <div class="row">
-          <div class="span9">
-              <label for="txtarea">Your Message<span class="theme-clr">*</span></label>
-              <%= f.text_area :message, class: "span9", id: "txtarea", size: "24x7" %>
+        <% if notice.present? %>
+          <div class="alert alert-info" role="alert"><%= notice %></div>
+        <% end %>
+        <% if @contact.errors.any? %>
+          <div id="row error_explanation">
+              <div class="alert alert-danger" role="alert">
+                  <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+                  <ul>
+                      <% @contact.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                  </ul>
+              </div>
           </div>
-      </div>
-      <div class="row">
-          <div class="span9">
-              <%= f.submit "SEND MESSAGE", class: "btn btn-theme no-bevel pull-right" %>
-          </div>
-      </div>
-    <% end %>
-  </article>
-</div>
+        <% end %>
+        <%= form_for(@contact, class: "form-contact") do |f| %>
+            <div class="row">
+                <div class="span3">
+                  <label for="inpt-name">First and Last name<span class="theme-clr">*</span></label>
+                  <%= f.text_field :name, class: "span3" , id: "inpt-name" %>
+                </div>
+                <div class="span3">
+                  <label for="inpt-phone">Phone Number<span class="theme-clr">*</span></label>
+                  <%= f.text_field :phone, class: "span3", id: "inpt-phone" %>
+                </div>
+                <div class="span3">
+                  <label for="inpt-email">E-mail Address</label>
+                  <%= f.text_field :email, class: "span3", id: "inpt-email" %>
+                </div>
+            </div>
+                  <div class="row">
+                      <div class="span9">
+                          <label for="txtarea">Your Message<span class="theme-clr">*</span></label>
+                          <%= f.text_area :message, class: "span9", id: "txtarea", size: "24x7" %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span9">
+                            <%= f.submit "SEND MESSAGE", class: "btn btn-theme no-bevel pull-right" %>
+                          </div>
+                      </div>
+                    <% end %>
+                </article>
+            </div>

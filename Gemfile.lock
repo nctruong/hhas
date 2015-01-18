@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/konjoot/rails_admin_flatly_theme.git
-  revision: 3e95e265d34cb2bb10fa03966e9a1d123c2b2e62
-  specs:
-    rails_admin_flatly_theme (1.1.0)
-      rails (> 3.1.3)
-
-GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 408832af0368ecd4687be53ccf9b1b29deceb91a
   specs:
@@ -231,7 +224,6 @@ DEPENDENCIES
   mysql2
   rails (= 4.2.0)
   rails_admin!
-  rails_admin_flatly_theme!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

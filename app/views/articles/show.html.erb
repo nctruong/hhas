@@ -1,44 +1,83 @@
-<p id="notice"><%= notice %></p>
+<div class="title-area">
+    <div class="container">
+        <div class="row">
+            <div class="span10">
+                <h1>News</h1>
+            </div>
+            <%= render "shared/socialicon" %>
+        </div>
+    </div>
+</div>
+<div class="breadcrumbs-container">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home Page</a> <span class="divider"></span></li>
+                    <li><%= link_to "News", articles_path %> <span class="divider"></span></li>
+                    <li class="active"><%= @article.title %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!-- /breadcrumbs -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <div class="lined">
+                            <h2><%= link_to @article.title, @article %></h2>
+                            <div class="meta-data">
+                                <%= @article.publishdate.strftime('%I. %^B %Y') %>
+                            </div>
+                            <span class="bolded-line"></span>
+                        </div>
+                        <div class="blog-content">
+                            <%= raw(@article.content) %>
+                        </div>
+                    </div><!-- /blogpost -->
+                    <div class="span9">
+                        <div class="divide-line">
+                            <div class="icon icons-scissors"></div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /blog -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
+            <div class="span3">
+                <div class="right sidebar">
+                    <div class="sidebar-item search">
+                        <div class="lined">
+                            <h2>SEARCH</h2>
+                            <h5>Find Something</h5>
+                            <span class="bolded-line"></span>
+                        </div>
+                        <form action="blog-search.html" class="form">
+                            <div class="input-append">
+                                <input class="search-width" id="appendedInputButton" type="text">
+                                <button class="btn btn-theme" type="submit">Go</button>
+                            </div>
+                        </form>
+                    </div><!-- /search -->
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
+                    <div class="sidebar-item last-comments">
+                        <div class="lined">
+                            <h2><span class="light">HOT</span> NEWS</h2>
+                            <h5>What Others</h5>
+                            <span class="bolded-line"></span>
+                        </div>
+                        <ul class="unstyled">
+                            <% Article.all.each do |item| %>
+                              <li><%= item.publishdate.strftime('%I %b') %> <%= link_to item.title, item %></li>
+                            <% end %>
+                        </ul>
+                    </div><!-- /last comments -->
+                </div>
+            </div>
 
-<p>
-  <strong>Thumb:</strong>
-  <%= @article.thumb %>
-</p>
-
-<p>
-  <strong>Publishdate:</strong>
-  <%= @article.publishdate %>
-</p>
-
-<p>
-  <strong>Article category:</strong>
-  <%= @article.article_category %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @article.visible %>
-</p>
-
-<p>
-  <strong>Ishomepage:</strong>
-  <%= @article.isHomePage %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+        </div><!-- / -->
+    </div><!-- /container -->
+</div>

@@ -8,323 +8,77 @@
         </div>
     </div>
 </div>
-
 <div class="breadcrumbs-container">
     <div class="container">
         <div class="row">
             <div class="span12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home Page</a> <span class="divider"></span></li>
-                    <li class="active"><a href="meet-the-team.html">Meet the Team</a></li>
+                    <li><%= link_to "Home Page", root_path %> <span class="divider"></span></li>
+                    <li class="active"><a href="#">Meet the Team</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div><!-- /breadcrumbs -->
-
 <div class="main-content">
     <div class="container">
-
-        <div class="row">
-            <div class="team-member" id="team-member-1">
-                <div class="span3">
-                    <div class="picture">
-                        <img src="http://placehold.it/270x370" alt="" width="270" height="370" />
-                        <div class="shine-overlay"></div>
-                    </div>
-                </div>
-                <div class="span6">
-                    <div class="lined">
-                        <h2><span class="light">Mary</span> Smith</h2>
-                        <h5>CEO of the company</h5>
-                        <span class="bolded-line"></span>
-                    </div>
-                    <div class="row">
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
+        <% @employees.each_with_index do |item, index| %>
+          <% if index.even?  %>
+            <div class="row">
+                <div class="team-member" id="team-member-<%= item.id %>">
+                    <div class="span3">
+                        <div class="picture">
+                            <img src="<%= item.thumb_url(:poster) %>" alt="" width="270" height="370" />
+                            <div class="shine-overlay"></div>
                         </div>
                     </div>
-                </div>
-                <div class="span3">
-                    <div class="member-details">
-                        <div class="lined"><div class="bolded-line"></div></div>
-                        <p><strong>Age:</strong> 37</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Zodiac sign:</strong> Leo</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Education:</strong> University of Something</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Experience:</strong> 7 years as Hairstylist</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Style:</strong> Wnb Hipster Lorem Ipsum Dolor</p>
+                    <div class="span9">
+                        <div class="lined">
+                            <h2><%= item.name %></h2>
+                            <h5><%= item.title %></h5>
+                            <span class="bolded-line"></span>
+                        </div>
+                        <div class="row">
+                            <div class="span9">
+                            <%= raw(item.content) %>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div><!-- /team-member -->
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <div class="divide-line">
-                    <span class="icon icons-scissors"></span>
-                </div>
+                </div><!-- /team-member -->
             </div>
-        </div><!-- /divider -->
-
-        <div class="row">
-            <div class="team-member" id="team-member-2">
-                <div class="span6">
-                    <div class="lined">
-                        <h2><span class="light">Patricia</span> Johnson</h2>
-                        <h5>Professional Hairstylist</h5>
-                        <span class="bolded-line"></span>
-                    </div>
-                    <div class="row">
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
+          <% else %>
+            <div class="row">
+                <div class="team-member" id="team-member-<%= item.id %>">
+                    <div class="span9">
+                        <div class="lined">
+                            <h2><%= item.name %></h2>
+                            <h5><%= item.title %></h5>
+                            <span class="bolded-line"></span>
                         </div>
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
+                        <div class="row">
+                            <div class="span9">
+                            <%= raw(item.content) %>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="span3">
-                    <div class="member-details">
-                        <div class="lined"><div class="bolded-line"></div></div>
-                        <p><strong>Age:</strong> 37</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Zodiac sign:</strong> Leo</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Education:</strong> University of Something</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Experience:</strong> 7 years as Hairstylist</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Style:</strong> Wnb Hipster Lorem Ipsum Dolor</p>
+                    <div class="span3">
+                        <div class="picture">
+                            <img src="<%= item.thumb_url(:poster) %>" alt="" width="270" height="370" />
+                            <div class="shine-overlay"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="span3">
-                    <div class="picture">
-                        <img src="http://placehold.it/270x370" alt="" width="270" height="370" />
-                        <div class="shine-overlay"></div>
-                    </div>
-                </div>
-            </div><!-- /team-member -->
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <div class="divide-line">
-                    <span class="icon icons-scissors"></span>
-                </div>
+                </div><!-- /team-member -->
             </div>
-        </div><!-- /divider -->
-
-        <div class="row">
-            <div class="team-member" id="team-member-3">
-                <div class="span3">
-                    <div class="picture">
-                        <img src="http://placehold.it/270x370" alt="" width="270" height="370" />
-                        <div class="shine-overlay"></div>
+          <% end %>
+          <% if (index + 1) < @employees.count %>
+            <div class="row">
+                <div class="span12">
+                    <div class="divide-line">
+                        <span class="icon icons-scissors"></span>
                     </div>
                 </div>
-                <div class="span6">
-                    <div class="lined">
-                        <h2><span class="light">James</span> Williams</h2>
-                        <h5>Professional Hairstylist</h5>
-                        <span class="bolded-line"></span>
-                    </div>
-                    <div class="row">
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="member-details">
-                        <div class="lined"><div class="bolded-line"></div></div>
-                        <p><strong>Age:</strong> 37</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Zodiac sign:</strong> Leo</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Education:</strong> University of Something</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Experience:</strong> 7 years as Hairstylist</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Style:</strong> Wnb Hipster Lorem Ipsum Dolor</p>
-                    </div>
-                </div>
-            </div><!-- /team-member -->
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <div class="divide-line">
-                    <span class="icon icons-scissors"></span>
-                </div>
-            </div>
-        </div><!-- /divider -->
-
-        <div class="row">
-            <div class="team-member" id="team-member-4">
-                <div class="span6">
-                    <div class="lined">
-                        <h2><span class="light">Linda</span> Jones</h2>
-                        <h5>Marketing &amp; Promotion</h5>
-                        <span class="bolded-line"></span>
-                    </div>
-                    <div class="row">
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="member-details">
-                        <div class="lined"><div class="bolded-line"></div></div>
-                        <p><strong>Age:</strong> 37</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Zodiac sign:</strong> Leo</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Education:</strong> University of Something</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Experience:</strong> 7 years as Hairstylist</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Style:</strong> Wnb Hipster Lorem Ipsum Dolor</p>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="picture">
-                        <img src="http://placehold.it/270x370" alt="" width="270" height="370" />
-                        <div class="shine-overlay"></div>
-                    </div>
-                </div>
-            </div><!-- /team-member -->
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <div class="divide-line">
-                    <span class="icon icons-scissors"></span>
-                </div>
-            </div>
-        </div><!-- /divider -->
-
-        <div class="row">
-            <div class="team-member" id="team-member-5">
-                <div class="span3">
-                    <div class="picture">
-                        <img src="http://placehold.it/270x370" alt="" width="270" height="370" />
-                        <div class="shine-overlay"></div>
-                    </div>
-                </div>
-                <div class="span6">
-                    <div class="lined">
-                        <h2><span class="light">Barbara</span> Brown</h2>
-                        <h5>Professional Hairstylist</h5>
-                        <span class="bolded-line"></span>
-                    </div>
-                    <div class="row">
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="member-details">
-                        <div class="lined"><div class="bolded-line"></div></div>
-                        <p><strong>Age:</strong> 37</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Zodiac sign:</strong> Leo</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Education:</strong> University of Something</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Experience:</strong> 7 years as Hairstylist</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Style:</strong> Wnb Hipster Lorem Ipsum Dolor</p>
-                    </div>
-                </div>
-            </div><!-- /team-member -->
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <div class="divide-line">
-                    <span class="icon icons-scissors"></span>
-                </div>
-            </div>
-        </div><!-- /divider -->
-
-        <div class="row">
-            <div class="team-member" id="team-member-6">
-                <div class="span6">
-                    <div class="lined">
-                        <h2><span class="light">Elizabeth</span> Davis</h2>
-                        <h5>Professional Hairstylist</h5>
-                        <span class="bolded-line"></span>
-                    </div>
-                    <div class="row">
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                        <div class="span3">
-                            Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra. Donec suscipit vehicula turpis sed lutpat Quisque vitae quam neque. Morbi cilisis placerat dapibus. Etiam ultrices nulla ed leo malesuada commodo bibendum orci vi verra.
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="member-details">
-                        <div class="lined"><div class="bolded-line"></div></div>
-                        <p><strong>Age:</strong> 37</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Zodiac sign:</strong> Leo</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Education:</strong> University of Something</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Experience:</strong> 7 years as Hairstylist</p>
-                        <div class="bolded-line"></div>
-                        <p><strong>Style:</strong> Wnb Hipster Lorem Ipsum Dolor</p>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="picture">
-                        <img src="http://placehold.it/270x370" alt="" width="270" height="370" />
-                        <div class="shine-overlay"></div>
-                    </div>
-                </div>
-            </div><!-- /team-member -->
-        </div>
-
-
-        <div class="row">
-            <div class="span12">
-                <div class="divide-line">
-                    <div class="icon icons-scissors"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row"><!-- brands -->
-            <div class="span12">
-                <div class="brands">
-                    <a href="#"><img src="http://placehold.it/93x55" alt="" width="93" height="55" /></a>
-                    <a href="#"><img src="http://placehold.it/202x55" alt="" width="202" height="55" /></a>
-                    <a href="#"><img src="http://placehold.it/202x55" alt="" width="202" height="55" /></a>
-                    <a href="#"><img src="http://placehold.it/169x55" alt="" width="169" height="55" /></a>
-                    <a href="#"><img src="http://placehold.it/184x55" alt="" width="184" height="55" /></a>
-                </div>
-            </div>
-        </div><!-- /brands -->
-
+            </div><!-- /divider -->
+          <% end %>
+        <% end %>
     </div><!-- /container -->
 </div>
