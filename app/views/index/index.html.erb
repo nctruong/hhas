@@ -51,6 +51,7 @@
 <div class="main-content">
     <div class="container">
         <div class="row">
+            <%= if !@aboutus.nil? %>
             <article class="span3"><!-- our services -->
                 <div class="lined">
                     <h2><a href="contact.html"><span class="light">ABOUT</span> US</a></h2>
@@ -59,6 +60,7 @@
                 </div>
                 <p><%= @aboutus.description %></p>
             </article><!-- /our services -->
+            <% end %>
             <% @services.each do |item|  %>
               <article class="span3"><!-- service -->
                   <div class="picture">

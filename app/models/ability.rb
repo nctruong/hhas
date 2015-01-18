@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     can :read, :all                   # allow everyone to read everything
-    if user && (user.role == 1)
+    if user
       can :manage, :all             # allow superadmins to do anything
     end
     # Define abilities for the passed in user here. For example:
