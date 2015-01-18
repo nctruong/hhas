@@ -42,24 +42,23 @@
                             </div>
                         </div>
                     </div><!-- /opening time -->
-
                     <div class="sidebar-item">
                         <div class="lined">
                             <h2><span class="light">OUR</span> ADDRESS</h2>
                             <h5>Where can you find us?</h5>
                             <span class="bolded-line"></span>
                         </div>
-                        <strong class="black-clr">Hairpress Saloon</strong> <br />
-                        Example Street 546 <br />
-                        Creative Town, ZIP 12345 <br />
-                        Slovenia, EU <br /><br />
+                        <strong class="black-clr"><%= getConfig 'title' %></strong> <br />
+                        <%= getConfig 'address1' %><br />
+                        <%= getConfig 'address2' %><br />
+                        <%= getConfig 'address3' %><br />
 
                         <a href="#" class="read-more">VIEW MAP -</a> <br /><br />
 
-                        Phone: <strong class="black-clr">+386 01 2345-6789</strong> <br />
-                        Fax: <strong class="black-clr">+386 01 2345-6789</strong> <br />
-                        Mail: <strong class="black-clr">info@proteusthemes.com</strong> <br />
-                        Web: <strong class="black-clr">www.hairpress.com</strong>
+                        Phone: <strong class="black-clr"><%= getConfig 'phone' %></strong> <br />
+                        Fax: <strong class="black-clr"><%= getConfig 'fax' %></strong> <br />
+                        Mail: <strong class="black-clr"><%= getConfig 'email' %></strong> <br />
+                        Web: <strong class="black-clr"><%= getConfig 'web' %></strong>
 
                     </div>
 
