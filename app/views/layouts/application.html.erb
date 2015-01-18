@@ -7,10 +7,10 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Hairpress, HTML template</title>
+        <title>.:: <%= getConfig 'title' %> ::.</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="ProteusThemes d.o.o.">
+        <meta name="author" content="PeterNguyen">
 
 
         <!--  ================  -->
@@ -68,13 +68,13 @@
                         <!--  ==============================  -->
                         <!--  = Place for logo and tagline =  -->
                         <!--  ==============================  -->
-                        <a class="brand" href="index.html">
+                        <%= link_to(root_path, class: 'brand') do %>
                             <img src="/images/scissors.png" alt="HairPress Logo" width="48" height="53" class="logo" />
                             <h1>
-                                hair<span class="theme-clr">press</span>
+                                <span class="theme-clr">Hair Hour</span> as
                             </h1>
-                            <span class="tagline">Template for Hairsalons</span>
-                        </a>
+                            <span class="tagline">Your Company Slogan</span>
+                        <% end %>
 
                         <!--  =============================================  -->
                         <!--  = Main top navigation with drop-drown menus =  -->
@@ -109,13 +109,13 @@
                         </div>
                         <nav>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="services-pricing.html">Services &amp; Pricing</a></li>
-                                <li><a href="meet-the-team.html">Meet the team</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                                <li><a href="make-an-appointment.html">Make an appointment</a></li>
+                                <li><%= link_to "Home", root_path %></li>
+                                <li><%= link_to "Services & Pricing", services_path %></li>
+                                <li><%= link_to "Meet the team", employees_path %></li>
+                                <li><%= link_to "Gallery", albums_path %></li>
+                                <li><%= link_to "Blog", articles_path %></li>
+                                <li><%= link_to "Contact us", new_contact_path %></li>
+                                <li><%= link_to "Make an appointment", new_reservation_path %></li>
                             </ul>
                         </nav>
                     </div><!-- /navigavation -->
