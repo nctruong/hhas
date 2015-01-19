@@ -52,6 +52,13 @@ gem 'kaminari'
 # gem 'rails_admin_flatly_theme', :git => 'git://github.com/konjoot/rails_admin_flatly_theme.git'
 gem 'rails_12factor'
 
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+
+# Add this if you're using rbenv
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
