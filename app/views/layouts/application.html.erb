@@ -71,7 +71,7 @@
                         <%= link_to(root_path, class: 'brand') do %>
                             <img src="/images/scissors.png" alt="HairPress Logo" width="48" height="53" class="logo" />
                             <h1>
-                                <span class="theme-clr">Hair Hour</span> as
+                                <span class="theme-clr">Hair House</span> as
                             </h1>
                             <span class="tagline">Your Company Slogan</span>
                         <% end %>
@@ -81,14 +81,16 @@
                         <!--  =============================================  -->
                         <div class="nav-collapse collapse">
                             <ul class="nav">
-                                <li <%= params[:controller] == 'index' ? 'class=active' : '' %>><%= link_to "Home", root_path %></li>
-                                <li <%= params[:controller] == 'services' ? 'class=active' : '' %>><%= link_to "Services & Pricing", services_path %></li>
-                                <li <%= params[:controller] == 'employees' ? 'class=active' : '' %>><%= link_to "Meet the team", employees_path %></li>
-                                <li <%= params[:controller] == 'albums' ? 'class=active' : '' %>><%= link_to "Gallery", albums_path %></li>
-                                <li <%= params[:controller] == 'articles' ? 'class=active' : '' %>><%= link_to "News", articles_path %></li>
-                                <li <%= params[:controller] == 'contacts' ? 'class=active' : '' %>><%= link_to "Contact", new_contact_path %></li>
+                                <!-- <li <%= params[:controller] == 'index' ? 'class=active' : '' %>><%= link_to "Home", root_path %></li> -->
+                                <li><%= link_to "Hove Side", root_path %></li>
+                                <li><%= link_to "Hår & Styling", services_path %></li>
+                                <li><%= link_to "Priser", article_path(4) %></li>
+                                <li><%= link_to "Meet the team", employees_path %></li>
+                                <li><%= link_to "Gallery", albums_path %></li>
+                                <li><%= link_to "Kampanje", articles_path %></li>
+                                <li><%= link_to "Kontakt", new_contact_path %></li>
                             </ul>
-                            <%= link_to "Make an appointment", new_reservation_path, class: "btn btn-theme btn-large pull-right" %>
+                            <%= link_to "Online booking", new_reservation_path, class: "btn btn-theme btn-large pull-right" %>
                         </div><!-- /.nav-collapse-->
                     </div>
                 </div>
@@ -110,7 +112,7 @@
                         <nav>
                             <ul class="nav nav-pills nav-stacked">
                                 <li><%= link_to "Home", root_path %></li>
-                                <li><%= link_to "Services & Pricing", services_path %></li>
+                                <li><%= link_to "Hår & Styling", services_path %></li>
                                 <li><%= link_to "Meet the team", employees_path %></li>
                                 <li><%= link_to "Gallery", albums_path %></li>
                                 <li><%= link_to "Blog", articles_path %></li>

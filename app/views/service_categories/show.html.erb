@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @service_category.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @service_category.description %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @service_category.visible %>
+</p>
+
+<%= link_to 'Edit', edit_service_category_path(@service_category) %> |
+<%= link_to 'Back', service_categories_path %>

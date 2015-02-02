@@ -1,7 +1,9 @@
 class Service < ActiveRecord::Base
+  belongs_to :service_category
   mount_uploader :thumb, ServiceUploader
   rails_admin do
-    navigation_label "Content"
+    navigation_label "Service"
+    parent ServiceCategory
     #configure :thumb, :jcrop
     edit do
       field :title
@@ -14,6 +16,7 @@ class Service < ActiveRecord::Base
       field :newprice do
         label "New price"
       end
+      field :service_category
       field :visible do
         default_value true
       end

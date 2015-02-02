@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117072229) do
+ActiveRecord::Schema.define(version: 20150202141550) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -141,18 +141,31 @@ ActiveRecord::Schema.define(version: 20150117072229) do
     t.datetime "updated_at",                               null: false
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "service_categories", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535
-    t.text     "content",     limit: 65535
-    t.string   "thumb",       limit: 255
-    t.integer  "oldprice",    limit: 4
-    t.integer  "newprice",    limit: 4
-    t.boolean  "isHomePage",  limit: 1,     default: false
     t.boolean  "visible",     limit: 1,     default: true
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
+
+  create_table "services", force: :cascade do |t|
+    t.string   "title",               limit: 255
+    t.text     "description",         limit: 65535
+    t.text     "content",             limit: 65535
+    t.string   "thumb",               limit: 255
+    t.integer  "oldprice",            limit: 4
+    t.integer  "newprice",            limit: 4
+    t.boolean  "isHomePage",          limit: 1,     default: false
+    t.boolean  "visible",             limit: 1,     default: true
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "ServiceCategory_id",  limit: 4
+    t.integer  "service_category_id", limit: 4
+  end
+
+  add_index "services", ["ServiceCategory_id"], name: "index_services_on_ServiceCategory_id", using: :btree
+  add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
 
   create_table "sliders", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -205,4 +218,5 @@ ActiveRecord::Schema.define(version: 20150117072229) do
   add_foreign_key "articles", "article_categories"
   add_foreign_key "menus", "menus"
   add_foreign_key "pictures", "albums"
+  add_foreign_key "services", "service_categories"
 end

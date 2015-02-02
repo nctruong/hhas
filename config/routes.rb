@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :service_categories
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :article_categories
 

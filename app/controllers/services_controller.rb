@@ -3,13 +3,14 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
+    @categories   = ServiceCategory.where(visible: true)
     @services   = Service.where(visible: true)
   end
 
   # GET /services/1
   # GET /services/1.json
   def show
-    @services = Service.where(visible: true)
+    @categories   = ServiceCategory.where(visible: true)
     @service = Service.find(params[:id])
   end
 

@@ -1,14 +1,15 @@
+<% categories.each do |category| %>
 <div class="left sidebar">
     <div class="sidebar-item menu">
         <h3 class="lined">
-            Services &amp; Pricing
+            <%= category.title %>
             <span class="bolded-line"></span>
         </h3>
         <ul class="nav nav-pills nav-stacked">
-            <li <% if current_page?(controller: 'services', action: 'index') %>class="active"<% end %>><%= link_to "Our Services", services_path %></li>
-            <% services.each do |item| %>
+            <% category.services.each do |item| %>
               <li <% if current_page?(controller: 'services', action: 'show', id: item.id) %>class="active"<% end %>><%= link_to item.title, item %></li>
             <% end %>
         </ul>
     </div>
 </div><!-- /sidebar -->
+<% end %>
