@@ -141,47 +141,38 @@
                         <div class="fb-like-box" data-href="<%= getSocialIcons.where(clss: 'facebook').first.link %>" data-width="220" data-show-faces="true" data-colorscheme="dark" data-stream="false" data-border-color="#aaaaaa" data-header="false"></div>
                     </div><!-- /facebook -->
 
-                    <div class="span3">
-                        <div class="lined">
-                            <!-- <nav class="arrows pull-right">
-                                <a href="#" class="left icon icons-arrow-left-white"></a>
-                                <a href="#" class="right icon icons-arrow-right-white"></a>
-                            </nav> -->
-                            <h2>TWITTER</h2>
-                            <h5>Latest tweets</h5>
-                            <span class="bolded-line"></span>
-                        </div>
-                        <a class="twitter-timeline" data-dnt="true" href="<%= getSocialIcons.where(clss: 'twitter').first.link %>"  data-widget-id="329899522903908352">Tweets by @primozcigler</a><script>!function (d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                            if (!d.getElementById(id)) {
-                              js = d.createElement(s);
-                              js.id = id;
-                              js.src = p + "://platform.twitter.com/widgets.js";
-                              fjs.parentNode.insertBefore(js, fjs);
-                            }
-                          }(document, "script", "twitter-wjs");</script>
-                    </div><!-- /navigavation -->
-
-                    <div class="span3">
+                    <div class="span6">
                         <div class="lined">
                             <h2>KONTAKT OSS</h2>
                             <h5>Where the hell we are</h5>
                             <span class="bolded-line"></span>
                         </div>
-                        <p>
-                            <strong><%= getConfig 'title' %></strong> <br />
-                            <%= getConfig 'address1' %> <br />
-                            <%= getConfig 'address2' %> <br />
-                            <%= getConfig 'address3' %> <br />
-                            <a href="#" class="read-more">VIEW MAP -</a>
-                        </p>
-                        <div class="bolded-line"></div>
-                        <p>
-                            Phone: <strong><%= getConfig 'phone' %></strong> <br />
-                            Fax: <strong><%= getConfig 'fax' %></strong> <br />
-                            Mail: <strong><%= getConfig 'email' %></strong> <br />
-                            Web: <strong><%= getConfig 'web' %></strong>
-                        </p>
+                        <div class="row">
+                            <div class="span6">
+                                <div class="row">
+                                    <p class="span6">Vi tar gjerne i mot besøk! Nedenfor kan du kontakte Hair House AS . Kontaktformularet kan brukes til alle spørsmål som du ikke har fått besvart ved å se på vår hjemmeside. Vi har som mål å besvare alle henvendelser innen 24 timer.</p>
+                                </div>
+                                <div class="bolded-line"></div>
+                                <div class="row">
+                                    <div class="span3">
+                                        <p>
+                                            <strong><%= getConfig 'title' %></strong> <br />
+                                            <%= getConfig 'address1' %> <br />
+                                            <%= getConfig 'address2' %> <br />
+                                            <%= getConfig 'address3' %>
+                                        </p>
+                                    </div>
+                                    <div class="span3">
+                                        <p>
+                                            Phone: <strong><%= getConfig 'phone' %></strong> <br />
+                                            Mail: <strong><%= getConfig 'email' %></strong> <br />
+                                            Web: <strong><%= getConfig 'web' %></strong>
+                                        </p>
+                                    </div>
+                                </div>                                
+                            </div>
+                            
+                        </div>
                     </div><!-- /navigavation -->
 
                 </div><!-- /row -->

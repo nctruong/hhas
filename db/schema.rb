@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202141550) do
+ActiveRecord::Schema.define(version: 20150208142810) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -115,6 +115,17 @@ ActiveRecord::Schema.define(version: 20150202141550) do
     t.boolean  "isClosed",   limit: 1,   default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+  end
+
+  create_table "partners", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.string   "logo",        limit: 255
+    t.boolean  "visible",     limit: 1,     default: true
+    t.boolean  "isHomePage",  limit: 1
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "link",        limit: 255
   end
 
   create_table "pictures", force: :cascade do |t|

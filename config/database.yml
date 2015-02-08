@@ -8,7 +8,7 @@ default: &default
   encoding: utf8
   username: hhas
   password: 0773911333
-  host: localhost
+  host: 188.166.9.163
 
 development:
   <<: *default

@@ -37,7 +37,7 @@
                               </dl>
                             <% end %>
                             <dl class="week-day closed" data-day="0">
-                                <dt>Sunday</dt>
+                                <dt>Søndag</dt>
                                 <dd>CLOSED</dd>
                             </dl>
                         </div>
@@ -51,16 +51,6 @@
 <div class="main-content">
     <div class="container">
         <div class="row">
-            <% if !@aboutus.nil? %>
-            <article class="span3"><!-- our services -->
-                <div class="lined">
-                    <h2><a href="contact.html"><span class="light">ABOUT</span> US</a></h2>
-                    <h5>Our interesting story</h5>
-                    <span class="bolded-line"></span>
-                </div>
-                <p><%= @aboutus.description %></p>
-            </article><!-- /our services -->
-            <% end %>
             <% @services.each do |item|  %>
               <article class="span3"><!-- service -->
                   <div class="picture">
@@ -97,7 +87,7 @@
                       <div class="lined">
                           <h2>
                               <a href="#" class="nav-left icon icons-arrow-left-white"></a>
-                              <%= link_to(employees_path) do %><span class="light">MEET THE</span> TEAM<% end %>
+                              <%= link_to(employees_path) do %><span class="light">Våre </span>medarbeider<% end %>
                               <a href="#" class="nav-right icon icons-arrow-right-white"></a>
                           </h2>
                           <h5>Who works for us</h5>
@@ -133,22 +123,16 @@
           <div class="row">
               <div class="span6"><!-- latest news -->
                   <div class="lined">
-                      <%= link_to "VIEW ALL", articles_path, class: "btn btn-theme pull-right no-bevel" %>
-                        <h2><%= link_to(articles_path) do%><span class="light">LATEST</span> NEWS<% end %></h2>
-                        <h5>What is going on</h5>
+                      <%= link_to "VIEW ALL", @aboutus, class: "btn btn-theme pull-right no-bevel" %>
+                        <h2><%= link_to(@aboutus) do%><span class="light">"OM</span> OSS<% end %></h2>
+                        <h5>Our interesting story</h5>
                         <span class="bolded-line"></span>
                     </div>
                     <div class="row">
-                        <% @articles.each do |item| %>
-                          <article class="span3">
-                              <h3 class="no-margin"><%= item.title %></h3>
-                              <div class="meta-info">
-                                  <span class="date"><%= item.publishdate.strftime('%d. %^B %Y') %></span>
-                              </div>
-                              <p><%= item.description %></p>
-                              <%= link_to "READ MORE", item, class: "read-more" %>
+                          <article class="span6">
+                              <p><%= @aboutus.description %></p>
+                              <%= link_to "READ MORE", @aboutus, class: "read-more" %>
                             </article>
-                          <% end %>
                       </div>
                   </div><!-- /latest news -->
 
@@ -220,5 +204,13 @@
                       </div>
                   </div>
               </div>
-
+              <div class="row"><!-- brands -->
+                  <div class="span12">
+                      <div class="brands">
+                        <% @partners.each do |partner| %>
+                          <%= link_to(partner.link) do %><img src="<%= partner.logo_url %>" alt="<%= partner.title %>" height="55" /><% end %>
+                        <% end %>
+                      </div>
+                  </div>
+              </div><!-- /brands -->
           </div> <!-- /container -->

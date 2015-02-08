@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  logo: MyString
+  visible: false
+  isHomePage: false
+
+two:
+  title: MyString
+  description: MyText
+  logo: MyString
+  visible: false
+  isHomePage: false
