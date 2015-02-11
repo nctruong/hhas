@@ -69,11 +69,7 @@
                         <!--  = Place for logo and tagline =  -->
                         <!--  ==============================  -->
                         <%= link_to(root_path, class: 'brand') do %>
-                            <img src="/images/scissors.png" alt="HairPress Logo" width="48" height="53" class="logo" />
-                            <h1>
-                                <span class="theme-clr">Hair House</span> as
-                            </h1>
-                            <span class="tagline">Your Company Slogan</span>
+                            <img src="/images/logo.png" alt="<%= getConfig 'title' %>" height="50" class="logo" />
                         <% end %>
 
                         <!--  =============================================  -->
