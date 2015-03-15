@@ -33,7 +33,7 @@
                             <% @opentimes[0..5].each_with_index do |item, index| %>
                               <dl class="week-day" data-day="<%= index + 1 %>">
                                   <dt><%= item.title %></dt>
-                                  <dd><%= "#{item.open.strftime('%I:%M')} - #{item.close.strftime('%I:%M')}" %></dd>
+                                  <dd><%= "#{item.open.strftime('%H:%M')} - #{item.close.strftime('%H:%M')}" %></dd>
                               </dl>
                             <% end %>
                             <dl class="week-day closed" data-day="0">

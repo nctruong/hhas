@@ -30,7 +30,6 @@
                 <% @services.each_with_index do |item, index| %>
                   <div class="lined">
                       <h2><%= item.title %></h2>
-                      <h5><%= item.created_at.strftime('%I. %B %Y') %></h5>
                       <span class="bolded-line"></span>
                   </div>
                   <% if index.even? %>
