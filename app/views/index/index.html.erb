@@ -124,13 +124,13 @@
               <div class="span6"><!-- latest news -->
                   <div class="lined">
                       <%= link_to "VIEW ALL", @aboutus, class: "btn btn-theme pull-right no-bevel" %>
-                        <h2><%= link_to(@aboutus) do%><span class="light">"OM</span> OSS<% end %></h2>
+                        <h2><%= link_to(@aboutus) do%><span class="light">OM</span> OSS<% end %></h2>
                         <h5>Our interesting story</h5>
                         <span class="bolded-line"></span>
                     </div>
                     <div class="row">
                           <article class="span6">
-                              <p><%= @aboutus.description %></p>
+                              <p><%= raw(@aboutus.description) %></p>
                               <%= link_to "READ MORE", @aboutus, class: "read-more" %>
                             </article>
                       </div>
